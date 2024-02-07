@@ -1,7 +1,8 @@
 import React from 'react'
+import Layout from "../../component/layout/Layout"
 
 export const Order = () => {
   return (
-    <div>Order</div>
+    <Layout>Order</Layout>
   )
 }
