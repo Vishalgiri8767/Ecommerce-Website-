@@ -1,8 +1,10 @@
 import React from 'react'
 import Layout from '../../component/layout/Layout'
 
-export const AllProduct = () => {
+export const DashBoard = () => {
   return (
-    <Layout>all products..</Layout>
+    <Layout>
+        DashBoard
+    </Layout>
   )
 }

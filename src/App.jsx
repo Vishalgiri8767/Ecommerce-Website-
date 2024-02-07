@@ -5,6 +5,8 @@ import { Cart } from './pages/cart/Cart'
 import { Order } from './pages/order/Order'
 import { NoPage } from './pages/nopage/NoPage'
 import MyState from './context/data/MyState'
+import { AllProduct } from './pages/allProduct/AllProduct'
+import { DashBoard } from './pages/dashBoard/DashBoard'
 
 
 function App() {
@@ -17,7 +19,9 @@ function App() {
           <Route path='/cart' element={<Cart/>} />
           <Route path='/home' element={<Home/>} />
           <Route path='/order' element={<Order/>} />
-          {/* <Route path='/dashboard' element={<DashBoard/>} /> */}
+          <Route path='/dashboard' element={<DashBoard/>} />
+          <Route path='/allproducts' element={<AllProduct/>} />
+
           <Route path='/*' element={<NoPage/>} />
         </Routes>
       </Router> 
