@@ -9,6 +9,8 @@ import { AllProduct } from './pages/allProduct/AllProduct'
 import { DashBoard } from './pages/dashBoard/DashBoard'
 import { Login } from './pages/registration/Login'
 import { Signup } from './pages/registration/Signup'
+import ProductInfo from './pages/productinfo/ProductInfo'
+
 
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
           <Route path='/order' element={<Order/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/signup' element={<Signup/>} />
+          <Route path='/productinfo' element={<ProductInfo/>} />
           <Route path='/dashboard' element={<DashBoard/>} />
           <Route path='/allproducts' element={<AllProduct/>} />
 
