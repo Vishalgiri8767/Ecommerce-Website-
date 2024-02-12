@@ -7,6 +7,8 @@ import { NoPage } from './pages/nopage/NoPage'
 import MyState from './context/data/MyState'
 import { AllProduct } from './pages/allProduct/AllProduct'
 import { DashBoard } from './pages/dashBoard/DashBoard'
+import { Login } from './pages/registration/Login'
+import { Signup } from './pages/registration/Signup'
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
           <Route path='/cart' element={<Cart/>} />
           <Route path='/home' element={<Home/>} />
           <Route path='/order' element={<Order/>} />
+          <Route path='/login' element={<Login/>} />
+          <Route path='/signup' element={<Signup/>} />
           <Route path='/dashboard' element={<DashBoard/>} />
           <Route path='/allproducts' element={<AllProduct/>} />
 
