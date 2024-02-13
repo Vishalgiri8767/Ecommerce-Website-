@@ -5,12 +5,11 @@ import { Order } from './pages/order/Order'
 import { NoPage } from './pages/nopage/NoPage'
 import MyState from './context/data/MyState'
 import { AllProduct } from './pages/allProduct/AllProduct'
-import { DashBoard } from './pages/dashBoard/DashBoard'
 import { Login } from './pages/registration/Login'
 import { Signup } from './pages/registration/Signup'
 import ProductInfo from './pages/productinfo/ProductInfo'
 import Cart from "./pages/cart/Cart"
-
+import DashBoard from "./pages/dashBoard/DashBoard"
 
 function App() {
 
