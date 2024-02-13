@@ -9,7 +9,7 @@ import { Login } from './pages/registration/Login'
 import { Signup } from './pages/registration/Signup'
 import ProductInfo from './pages/productinfo/ProductInfo'
 import Cart from "./pages/cart/Cart"
-import DashBoard from "./pages/dashBoard/DashBoard"
+import DashBoard from "./pages/dashBoard/admin/DashBoard"
 
 function App() {
 
