@@ -52,6 +52,7 @@ function Dashboard() {
             </div>
             <DashboardTab />
         </section>
+
     </Layout>
   )
 }
