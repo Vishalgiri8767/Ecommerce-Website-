@@ -4,7 +4,8 @@ import myContext from '../../context/data/myContext'
 import { toast } from 'react-toastify';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, fireDB } from '../../firebase/FirebaseConfig';
-import { addDoc, collection } from 'firebase/firestore';
+import { Timestamp, addDoc, collection } from 'firebase/firestore';
+import Loader from '../../component/loader/Loader';
 
 export const Signup = () => {
     const [name, setName] = useState("");
@@ -15,6 +16,7 @@ export const Signup = () => {
     const {loading, setLoading} = context;
 
     const handleSignUp = async()=>{
+        setLoading(true);
         if(name==="" || email==="" || password===""){
             toast.error("all fields are required") ;
         }
@@ -25,19 +27,31 @@ export const Signup = () => {
             const user ={
                 name:name,
                 email: users.user.email,
-                uid:users.user.uid
+                uid:users.user.uid,
+                time:Timestamp.now()
             };
             const userRef = collection(fireDB,"users");
             await addDoc(userRef, user);
 
+            toast.success("login successful")
+
+            setName("");
+            setEmail("");
+            setPassword("");
+
+            setLoading(false);
+
         } catch (error) {
-            return toast.error("please check input")
+            //return toast.error("please check input")
+            console.log(error);
+            setLoading(false);
         }
 
     }
 
     return (
         <div className='flex justify-center items-center h-screen'>
+            {loading && <Loader />}
             <div className=' bg-gray-800 px-10 py-10 rounded-xl '>
                 <div className="">
                     <h1 className='text-center text-white text-xl mb-4 font-bold'>User Registration</h1>
