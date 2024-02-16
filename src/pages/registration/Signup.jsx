@@ -2,6 +2,9 @@ import React, { useContext, useState } from 'react'
 import { Link, useHref } from 'react-router-dom'
 import myContext from '../../context/data/myContext'
 import { toast } from 'react-toastify';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth, fireDB } from '../../firebase/FirebaseConfig';
+import { addDoc, collection } from 'firebase/firestore';
 
 export const Signup = () => {
     const [name, setName] = useState("");
@@ -11,11 +14,26 @@ export const Signup = () => {
     const context = useContext(myContext);
     const {loading, setLoading} = context;
 
-    const handleSignUp = ()=>{
+    const handleSignUp = async()=>{
         if(name==="" || email==="" || password===""){
-            console.log(toast.error("all fields are required")) ;
+            toast.error("all fields are required") ;
         }
-        console.log(name,email,password);
+        try {
+            const users = await createUserWithEmailAndPassword(auth,email,password);
+            console.log(users);
+
+            const user ={
+                name:name,
+                email: users.user.email,
+                uid:users.user.uid
+            };
+            const userRef = collection(fireDB,"users");
+            await addDoc(userRef, user);
+
+        } catch (error) {
+            return toast.error("please check input")
+        }
+
     }
 
     return (
