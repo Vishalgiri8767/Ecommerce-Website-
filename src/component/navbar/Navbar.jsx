@@ -63,11 +63,16 @@ const Navbar = () => {
                   <Link to={'/allproducts'} className="text-sm font-medium text-gray-900 " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     All Products
                   </Link>
-                  <div className="flow-root">
-                    <Link to={'/order'} style={{ color: mode === 'dark' ? 'white' : '', }} className="-m-2 block p-2 font-medium text-gray-900">
-                      Order
-                    </Link>
-                  </div>
+                  {user ?
+                    <div className="flow-root">
+                      <Link to={'/order'} style={{ color: mode === 'dark' ? 'white' : '', }} className="-m-2 block p-2 font-medium text-gray-900">
+                        Order
+                      </Link>
+                    </div>
+                    : ""
+
+                  }
+
 
                   {user?.user?.email === 'admin01@gmail.com' ?
                     <div className="flow-root">
@@ -150,9 +155,14 @@ const Navbar = () => {
                   <Link to={'/allproducts'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     All Products
                   </Link>
-                  <Link to={'/order'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
-                    Order
-                  </Link>
+
+                  {user ?
+                    <Link to={'/order'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                      Order
+                    </Link>
+                    : ""
+                  }
+
 
                   {user?.user?.email === 'admin01@gmail.com' ?
                     <Link to={'/dashboard'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
@@ -212,11 +222,11 @@ const Navbar = () => {
                   </Link>
                 </div>
 
-                {!user &&
+                {/* {!user &&
                   <Link to={'/login'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     Login
                   </Link>
-                }
+                } */}
 
               </div>
             </div>
