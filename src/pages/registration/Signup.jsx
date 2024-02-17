@@ -22,6 +22,8 @@ export const Signup = () => {
         }
         try {
             const users = await createUserWithEmailAndPassword(auth,email,password);
+            toast.success("login successful")
+
             console.log(users);
 
             const user ={
@@ -33,7 +35,7 @@ export const Signup = () => {
             const userRef = collection(fireDB,"users");
             await addDoc(userRef, user);
 
-            toast.success("login successful")
+          //  window.location.href="/"
 
             setName("");
             setEmail("");
