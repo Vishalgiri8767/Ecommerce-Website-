@@ -13,11 +13,11 @@ const Navbar = () => {
   const user = JSON.parse(localStorage.getItem('user'));
   console.log(user?.user?.email);
 
-  const {mode, toggleMode} = context;
+  const { mode, toggleMode } = context;
 
-  const handleLogout = ()=>{
-   localStorage.clear('user');
-    window.location.href="/login";
+  const handleLogout = () => {
+    localStorage.clear('user');
+    window.location.href = "/login";
   }
 
   return (
@@ -59,7 +59,7 @@ const Navbar = () => {
                   </button>
                 </div>
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-                  
+
                   <Link to={'/allproducts'} className="text-sm font-medium text-gray-900 " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     All Products
                   </Link>
@@ -69,27 +69,30 @@ const Navbar = () => {
                     </Link>
                   </div>
 
-                {user?.user?.email==='admin01@gmail.com' ? 
-                 <div className="flow-root">
-                  <Link to={'/dashboard'} className="-m-2 block p-2 font-medium text-gray-900" style={{ color: mode === 'dark' ? 'white' : '', }}>
-                   admin
-                 </Link> 
-               </div>
-                : ""}
-               
-                 
-                  <div className="flow-root">
-                    <a onClick={handleLogout}
-                      className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer" style={{ color: mode === 'dark' ? 'white' : '', }}>
-                      Logout
-                    </a>
-                  </div>
+                  {user?.user?.email === 'admin01@gmail.com' ?
+                    <div className="flow-root">
+                      <Link to={'/dashboard'} className="-m-2 block p-2 font-medium text-gray-900" style={{ color: mode === 'dark' ? 'white' : '', }}>
+                        admin
+                      </Link>
+                    </div>
+                    : ""}
+
+                  {user ?
+                    <div className="flow-root">
+                      <a onClick={handleLogout}
+                        className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer" style={{ color: mode === 'dark' ? 'white' : '', }}>
+                        Logout
+                      </a>
+                    </div>
+                    : ""
+                  }
+
                   <div className="flow-root">
                     <Link to={'/'} className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer">
                       <img
                         className="inline-block w-10 h-10 rounded-full"
                         src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
-                        alt="Dan_Abromov" />                                        
+                        alt="Dan_Abromov" />
                     </Link>
                   </div>
                 </div>
@@ -111,7 +114,7 @@ const Navbar = () => {
         </Dialog>
       </Transition.Root>
 
-    {/* for desktop */}
+      {/* for desktop */}
       <header className="relative bg-white">
         <p className="flex h-10 items-center justify-center bg-pink-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8" style={{ backgroundColor: mode === 'dark' ? 'rgb(62 64 66)' : '', color: mode === 'dark' ? 'white' : '', }}>
           Get free delivery on orders over ₹300
@@ -151,17 +154,19 @@ const Navbar = () => {
                     Order
                   </Link>
 
-                  {user?.user?.email==='admin01@gmail.com' ? 
-                  <Link to={'/dashboard'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
-                    Admin
-                  </Link>
-                  :""}
+                  {user?.user?.email === 'admin01@gmail.com' ?
+                    <Link to={'/dashboard'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                      Admin
+                    </Link>
+                    : ""}
 
+                  {user &&
+                    <a onClick={handleLogout}
+                      className="text-sm font-medium text-gray-700 cursor-pointer  " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                      Logout
+                    </a>
+                  }
 
-                  <a onClick={handleLogout}
-                    className="text-sm font-medium text-gray-700 cursor-pointer  " style={{ color: mode === 'dark' ? 'white' : '', }}>
-                    Logout
-                  </a>
                 </div>
 
                 <div className="hidden lg:ml-8 lg:flex">
@@ -206,6 +211,13 @@ const Navbar = () => {
                     <span className="sr-only">items in cart, view bag</span>
                   </Link>
                 </div>
+
+                {!user &&
+                  <Link to={'/login'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                    Login
+                  </Link>
+                }
+
               </div>
             </div>
           </div>
