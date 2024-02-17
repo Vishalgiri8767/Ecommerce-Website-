@@ -42,9 +42,10 @@ export const Signup = () => {
             setLoading(false);
 
         } catch (error) {
-            //return toast.error("please check input")
-            console.log(error);
             setLoading(false);
+            return toast.error("Sign up failed!")
+            console.log(error);
+            
         }
 
     }
