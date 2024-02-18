@@ -56,7 +56,7 @@ function MyState(props) {
       setTimeout(()=>{
         window.location.href = "/dashboard"
       },1000);
-      
+
       getProductData();
       setLoading(false);
 
@@ -68,7 +68,7 @@ function MyState(props) {
   }
   //  get products
   const getProductData = async()=>{
-   // setLoading(true);
+    //setLoading(true);
     try {
       const q = query(
         collection(fireDB,"products"),
