@@ -47,22 +47,28 @@ function MyState(props) {
     }
 
     const productRef = collection(fireDB, 'products');
-
+    setLoading(true);
     try {
       
       await addDoc(productRef, products);
       toast.success("product added successfully");
-      getProductData();
+
+      setTimeout(()=>{
+        window.location.href = "/dashboard"
+      },1000);
       
+      getProductData();
+      setLoading(false);
 
     } catch (error) {
-      console.log(error)
+      console.log(error);
+      setLoading(false);
     } 
+    
   }
-
   //  get products
   const getProductData = async()=>{
-    //setLoading(true);
+   // setLoading(true);
     try {
       const q = query(
         collection(fireDB,"products"),
@@ -89,7 +95,7 @@ function MyState(props) {
   },[]);
 
   return (
-    <MyContext.Provider value={{mode, toggleMode, loading, setLoading, products, setProducts, addProduct}}>
+    <MyContext.Provider value={{mode, toggleMode, loading, setLoading, products, setProducts, addProduct, product}}>
         {props.children}
     </MyContext.Provider>
   )

@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import { Home } from './pages/home/Home'
 import { Order } from './pages/order/Order'
 import { NoPage } from './pages/nopage/NoPage'
-import MyState from './context/data/MyState'
 import { AllProduct } from './pages/allProduct/AllProduct'
 import { Login } from './pages/registration/Login'
 import { Signup } from './pages/registration/Signup'
@@ -14,6 +13,7 @@ import  AddProduct  from './pages/admin/pages/AddProduct'
 import  UpdateProduct  from './pages/admin/pages/UpdateProduct'
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import MyState from './context/data/myState'
 
 function App() {
 
@@ -72,7 +72,7 @@ const ProtectedRoute = ({children})=>{
 const ProtectedRouteForAdmin = ({children})=>{
   const admin = JSON.parse(localStorage.getItem('user'));
 
-  if(admin.user.email==="admin01@gmail.com"){
+  if(admin?.user?.email==="admin01@gmail.com"){
     return children
   }
   else{
