@@ -105,8 +105,9 @@ function MyState(props) {
     try {
       await setDoc(doc(fireDB, "products", products.id), products);
       toast.success("product update successful")
-      getProductData();
       window.location.href="/dashboard"
+      getProductData();
+
       setLoading(false);
 
     } catch (error) {
