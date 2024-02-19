@@ -97,7 +97,7 @@ function MyState(props) {
 
   //update product function.
   const editHandle = (item)=>{
-    setProduct(item);
+    setProducts(item);
   }
   //update product
   const updateProduct = async(item)=>{
