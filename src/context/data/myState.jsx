@@ -105,7 +105,11 @@ function MyState(props) {
     try {
       await setDoc(doc(fireDB, "products", products.id), products);
       toast.success("product update successful")
-      window.location.href="/dashboard"
+      
+      setTimeout(()=>{
+        window.location.href="/dashboard"
+      },1000);
+
       getProductData();
 
       setLoading(false);
@@ -128,7 +132,6 @@ function MyState(props) {
       setLoading(false);
     }
   }
-
 
   return (
     <MyContext.Provider value={{mode, toggleMode, loading, setLoading, products, setProducts, addProduct, product, editHandle, updateProduct, deleteProduct}}>
