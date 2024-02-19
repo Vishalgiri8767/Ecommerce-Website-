@@ -36,8 +36,6 @@ function ProductCard() {
                     </div>
                     )
                  })}
-
-
                 </div>
             </div>
         </section >
