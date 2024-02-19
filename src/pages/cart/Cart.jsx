@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import myContext from '../../context/data/myContext';
 import Layout from '../../component/layout/Layout';
 import Modal from '../../component/modal/Modal';
@@ -11,26 +11,50 @@ function Cart() {
   const context = useContext(myContext)
   const { mode } = context;
   const dispatch = useDispatch();
+  const [totalAmount, setTotalAmount] = useState(0);
 
   const cartItems = useSelector((state)=>state.cart);
   console.log(cartItems);
 
-  // const deleteProductFromCart = (item)=>{
-  //   dispatch(deleteFromCart(item));
-  //   toast.success("Product Removed from Cart");
-  // }
     const deleteProductFromCart = (item)=>{
-      dispatch(deleteProductFromCart(item));
+      dispatch(deleteFromCart(item));
       toast.success("Product Removed From Cart");
-    }
+    };
+
   useEffect(()=>{
     localStorage.setItem('cart',JSON.stringify(cartItems));
-  },[cartItems])
+  },[cartItems]);
+
+  // useEffect(()=>{
+  //   let temp = 0;
+  //   cartItems?.forEarch((cartItem)=>{
+  //     temp = parseInt(cartItem.prize)  + temp;
+  //   })
+  //   setTotalAmount(temp);
+  // },[cartItems])
+
+  useEffect(() => {
+    let temp = 0;
+    cartItems.forEach((cartItem) => {
+      temp = temp + parseInt(cartItem.prize)
+    })
+    setTotalAmount(temp);
+    //console.log(temp)
+  }, [cartItems])
 
   return (
     <Layout >
       <div className="h-screen  bg-gray-100 pt-5 mb-[60%] " style={{ backgroundColor: mode === 'dark' ? '#282c34' : '', color: mode === 'dark' ? 'white' : '', }}>
         <h1 className="mb-10 text-center text-2xl  font-bold">Cart Items</h1>
+        
+        {
+          cartItems.length ?
+          ""
+          : 
+          <h1 className="mb-10 text-center text-2xl  font-bold">Your cart is feeling a little lonely! Let's fill it up together.</h1>
+
+        }
+
         <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0 ">
           <div className="rounded-lg md:w-2/3 ">
 
@@ -74,12 +98,12 @@ function Cart() {
             )
           })}
 
-          </div>
-         
+        </div>
+         {cartItems.length ?
           <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3" style={{ backgroundColor: mode === 'dark' ? 'rgb(32 33 34)' : '', color: mode === 'dark' ? 'white' : '', }}>
             <div className="mb-2 flex justify-between">
               <p className="text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>Subtotal</p>
-              <p className="text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>₹100</p>
+              <p className="text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>₹{totalAmount}</p>
             </div>
             <div className="flex justify-between">
               <p className="text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>Shipping</p>
@@ -89,7 +113,7 @@ function Cart() {
             <div className="flex justify-between mb-3">
               <p className="text-lg font-bold" style={{ color: mode === 'dark' ? 'white' : '' }}>Total</p>
               <div className>
-                <p className="mb-1 text-lg font-bold" style={{ color: mode === 'dark' ? 'white' : '' }}>₹200</p>
+                <p className="mb-1 text-lg font-bold" style={{ color: mode === 'dark' ? 'white' : '' }}>₹{totalAmount+20}</p>
               </div>
             </div>
             <Modal  />
@@ -100,6 +124,8 @@ function Cart() {
               Buy Now
             </button> */}
           </div>
+         :""
+          }
         </div>
       </div>
     </Layout>
