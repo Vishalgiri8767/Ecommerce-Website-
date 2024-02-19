@@ -12,7 +12,7 @@ const Navbar = () => {
   const context = useContext(myContext);
   const [open, setOpen] = useState(false);
   const user = JSON.parse(localStorage.getItem('user'));
-  console.log(user?.user?.email);
+  //console.log(user?.user?.email);
 
   const { mode, toggleMode } = context;
   const cartItems = useSelector((state)=>state.cart);
