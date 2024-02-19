@@ -36,7 +36,7 @@ function Cart() {
   }, [cartItems]);
 
   const shippping = parseInt(100);
-  const grantTotal = shippping+totalAmount;
+  const grandTotal = shippping+totalAmount;
 
   return (
     <Layout >
@@ -109,7 +109,7 @@ function Cart() {
             <div className="flex justify-between mb-3">
               <p className="text-lg font-bold" style={{ color: mode === 'dark' ? 'white' : '' }}>Total</p>
               <div className>
-                <p className="mb-1 text-lg font-bold" style={{ color: mode === 'dark' ? 'white' : '' }}>₹{grantTotal}</p>
+                <p className="mb-1 text-lg font-bold" style={{ color: mode === 'dark' ? 'white' : '' }}>₹{grandTotal}</p>
               </div>
             </div>
             <Modal  />
