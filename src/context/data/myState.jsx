@@ -89,11 +89,7 @@ function MyState(props) {
       setLoading(false);
     }
   }
-  useEffect(()=>{
-    getProductData();
-
-  },[]);
-
+  
 
   //update product function.
   const editHandle = (item)=>{
@@ -132,6 +128,11 @@ function MyState(props) {
       setLoading(false);
     }
   }
+  useEffect(()=>{
+    getProductData();
+
+  },[]);
+
 
   return (
     <MyContext.Provider value={{mode, toggleMode, loading, setLoading, products, setProducts, addProduct, product, editHandle, updateProduct, deleteProduct}}>

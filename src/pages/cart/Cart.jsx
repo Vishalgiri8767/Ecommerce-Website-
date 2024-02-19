@@ -2,12 +2,16 @@ import React, { useContext } from 'react'
 import myContext from '../../context/data/myContext';
 import Layout from '../../component/layout/Layout';
 import Modal from '../../component/modal/Modal';
+import { useSelector } from 'react-redux';
 
 
 function Cart() {
 
   const context = useContext(myContext)
   const { mode } = context;
+
+ // const item = useSelector(store=>(store.cart))
+  
 
   return (
     <Layout >
