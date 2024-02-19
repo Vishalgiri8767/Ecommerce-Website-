@@ -15,10 +15,14 @@ function Cart() {
   const cartItems = useSelector((state)=>state.cart);
   console.log(cartItems);
 
-  const deleteProductFromCart = (item)=>{
-    dispatch(deleteFromCart(item));
-    toast.success("Product Removed from Cart");
-  }
+  // const deleteProductFromCart = (item)=>{
+  //   dispatch(deleteFromCart(item));
+  //   toast.success("Product Removed from Cart");
+  // }
+    const deleteProductFromCart = (item)=>{
+      dispatch(deleteProductFromCart(item));
+      toast.success("Product Removed From Cart");
+    }
   useEffect(()=>{
     localStorage.setItem('cart',JSON.stringify(cartItems));
   },[cartItems])
