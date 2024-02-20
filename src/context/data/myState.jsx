@@ -128,6 +128,11 @@ function MyState(props) {
       setLoading(false);
     }
   };
+  useEffect(()=>{
+    getProductData();
+
+  },[]);
+
 
   const [order, setOrder] = useState([]);
     const getOrderData = async () => {
@@ -149,13 +154,11 @@ function MyState(props) {
             setLoading(false)
         }
     };
+    useEffect(()=>{
+      getOrderData();
+    },[]);
 
-
-  useEffect(()=>{
-    getProductData();
-    getOrderData();
-  },[]);
-
+  
 
   return (
     <MyContext.Provider value={{mode, toggleMode, loading, setLoading, products, setProducts, addProduct, product, editHandle, updateProduct, deleteProduct,order}}>
