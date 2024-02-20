@@ -1,7 +1,7 @@
 import './App.css'
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
 import { Home } from './pages/home/Home'
-import { Order } from './pages/order/Order'
+// import { Order } from './pages/order/Order'
 import { NoPage } from './pages/nopage/NoPage'
 import { AllProduct } from './pages/allProduct/AllProduct'
 import { Login } from './pages/registration/Login'
@@ -14,6 +14,7 @@ import  UpdateProduct  from './pages/admin/pages/UpdateProduct'
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import MyState from './context/data/myState'
+import Order from './pages/order/Order'
 
 function App() {
 

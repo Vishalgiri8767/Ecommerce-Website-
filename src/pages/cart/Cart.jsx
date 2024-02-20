@@ -8,7 +8,6 @@ import { toast } from 'react-toastify';
 import { addDoc, collection } from 'firebase/firestore';
 import { fireDB } from "../../firebase/FirebaseConfig"
 
-
 function Cart() {
 
   const context = useContext(myContext)
@@ -103,7 +102,11 @@ function Cart() {
               year: "numeric",
             }
           ),
+          email:JSON.parse(localStorage.getItem("user")).user.email,
+          userid:JSON.parse(localStorage.getItem("user")).user.uid,
+          paymentId
         };
+        
         try {
           const orderRef = collection(fireDB, 'order');
           addDoc(orderRef, orderInfo);
