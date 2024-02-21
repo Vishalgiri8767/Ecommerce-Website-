@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import MyContext from "../data/myContext"
 import { useHref } from 'react-router-dom';
-import { QuerySnapshot, Timestamp, addDoc, doc, collection, deleteDoc, onSnapshot, orderBy, query, setDoc, getDocs } from 'firebase/firestore';
+
+
+import { QuerySnapshot, Timestamp, addDoc, doc, collection, deleteDoc, onSnapshot, orderBy, query, setDoc, getDocs, getDoc } from 'firebase/firestore';
 import { toast } from 'react-toastify';
 import { fireDB } from '../../firebase/FirebaseConfig';
 
@@ -90,11 +92,11 @@ function MyState(props) {
     }
   }
   
-
   //update product function.
   const editHandle = (item)=>{
     setProducts(item);
   }
+
   //update product
   const updateProduct = async(item)=>{
     setLoading(true);
@@ -133,7 +135,6 @@ function MyState(props) {
 
   },[]);
 
-
   const [order, setOrder] = useState([]);
     const getOrderData = async () => {
         setLoading(true);
@@ -155,17 +156,38 @@ function MyState(props) {
         }
     };
 
+    const [user, setUser] = useState([]);
+
     const getUserData = async () => {
+      setLoading(true)
+      try {
+        const result = await getDocs(collection(fireDB, "users"))
+        const usersArray = [];
+        result.forEach((doc) => {
+          usersArray.push(doc.data());
+          setLoading(false)
+        });
+
+        setUser(usersArray);
+        //console.log(usersArray)
+        setLoading(false);
+      } catch (error) {
+        console.log(error)
+        setLoading(false)
+      }
+    }
+  
     useEffect(()=>{
       getOrderData();
+      getUserData();
     },[]);
 
-  
 
   return (
-    <MyContext.Provider value={{mode, toggleMode, loading, setLoading, products, setProducts, addProduct, product, editHandle, updateProduct, deleteProduct,order}}>
+    <MyContext.Provider value={{mode, toggleMode, loading, setLoading, products, setProducts, addProduct, product, editHandle, updateProduct, deleteProduct,order,user}}>
         {props.children}
     </MyContext.Provider>
+
   )
 }
 
