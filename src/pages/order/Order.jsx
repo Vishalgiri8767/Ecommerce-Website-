@@ -7,7 +7,7 @@ function Order() {
   const userid = JSON.parse(localStorage.getItem('user')).user.uid
   const context = useContext(myContext);
   const { mode, loading, order } = context;
-  console.log(order);
+ // console.log(order);
   return (
 
     <Layout>

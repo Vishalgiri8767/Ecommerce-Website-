@@ -7,6 +7,7 @@ import { deleteFromCart } from '../../redux/cartSlice';
 import { toast } from 'react-toastify';
 import { addDoc, collection } from 'firebase/firestore';
 import { fireDB } from "../../firebase/FirebaseConfig"
+import { ROZORPAY_KEY, ROZORPAY_SECRET_KEY } from '../../utils/constant';
 
 function Cart() {
 
@@ -76,10 +77,10 @@ function Cart() {
     }
 
     var options = {
-      // key: "rzp_test_cYdyc8NJS0sqxu",
-      // key_secret: "5AMg8PInkrSvuQ7oxipukaWw",
-      key:"rzp_test_cYdyc8NJS0sqxu",
-      key_secret:"5AMg8PInkrSvuQ7oxipukaWw",
+
+      key:ROZORPAY_KEY,
+      key_secret:ROZORPAY_SECRET_KEY,
+
       amount: parseInt(grandTotal * 100),
       currency: "INR",
       order_receipt: 'order_rcptid_' + name,
