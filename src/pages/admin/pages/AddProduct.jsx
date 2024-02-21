@@ -6,7 +6,7 @@ function AddProduct() {
     const context = useContext(myContext);
     const {products, setProducts, addProduct} = context;
 
-    console.log("hiii ")
+    
     return (
         <div>
             <div className=' flex justify-center items-center h-screen'>
