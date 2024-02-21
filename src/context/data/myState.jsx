@@ -154,6 +154,7 @@ function MyState(props) {
             setLoading(false)
         }
     };
+    const getUserData = async () => {
     useEffect(()=>{
       getOrderData();
     },[]);
