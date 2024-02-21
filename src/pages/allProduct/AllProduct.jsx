@@ -3,6 +3,6 @@ import Layout from '../../component/layout/Layout'
 
 export const AllProduct = () => {
   return (
-    <Layout>all products..</Layout>
+    <Layout>AllProduct...</Layout>
   )
 }

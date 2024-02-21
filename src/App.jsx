@@ -1,7 +1,6 @@
 import './App.css'
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
 import { Home } from './pages/home/Home'
-// import { Order } from './pages/order/Order'
 import { NoPage } from './pages/nopage/NoPage'
 import { AllProduct } from './pages/allProduct/AllProduct'
 import { Login } from './pages/registration/Login'
