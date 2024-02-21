@@ -193,7 +193,7 @@ function Cart() {
               </div>
               <div className="flex justify-between">
                 <p className="text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>Shipping</p>
-                <p className="text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>₹{shippping}</p>
+                <p className="text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>₹{totalAmount<10000 ? shippping : shippping+100}</p>
               </div>
               <hr className="my-4" />
               <div className="flex justify-between mb-3">
