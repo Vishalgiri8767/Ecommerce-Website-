@@ -13,6 +13,10 @@ function MyState(props) {
   const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState([]);
   
+  const [searchkey, setSearchkey] = useState('')
+  const [filterType, setFilterType] = useState('')
+  const [filterPrice, setFilterPrice] = useState('')
+
   const toggleMode = ()=>{
     if(mode==='light')
     {
@@ -130,11 +134,7 @@ function MyState(props) {
       setLoading(false);
     }
   };
-  useEffect(()=>{
-    getProductData();
-
-  },[]);
-
+ 
   const [order, setOrder] = useState([]);
     const getOrderData = async () => {
         setLoading(true);
@@ -178,13 +178,14 @@ function MyState(props) {
     }
   
     useEffect(()=>{
+      getProductData();
       getOrderData();
       getUserData();
     },[]);
 
 
   return (
-    <MyContext.Provider value={{mode, toggleMode, loading, setLoading, products, setProducts, addProduct, product, editHandle, updateProduct, deleteProduct,order,user}}>
+    <MyContext.Provider value={{mode, toggleMode, loading, setLoading, products, setProducts, addProduct, product, editHandle, updateProduct, deleteProduct,order,user,searchkey,setSearchkey,filterType,setFilterType,filterPrice,setFilterPrice}}>
         {props.children}
     </MyContext.Provider>
 
