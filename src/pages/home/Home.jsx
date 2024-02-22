@@ -6,9 +6,7 @@ import  ProductCard  from '../../component/productCard/ProductCard'
 import Testimonial  from '../../component/testimonial/Testimonial'
 
 export const Home = () => {
-
  
-  
   return (
     <div>
       

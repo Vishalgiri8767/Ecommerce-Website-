@@ -49,7 +49,6 @@ export const Signup = () => {
             console.log(error);
             
         }
-
     }
 
     return (
