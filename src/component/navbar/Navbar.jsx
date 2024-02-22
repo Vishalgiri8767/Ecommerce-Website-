@@ -15,14 +15,16 @@ const Navbar = () => {
   //console.log(user?.user?.email);
 
   const { mode, toggleMode } = context;
-  const cartItems = useSelector((state)=>state.cart);
+  const cartItems = useSelector((state) => state.cart);
 
 
   const handleLogout = () => {
     localStorage.clear('user');
     window.location.href = "/login";
   }
-
+  const handleLogin =()=>{
+    window.location.href = "/login"
+  }
   return (
     <div className='bg-white sticky top-0 z-50 '>
       {/* for mobile phone */}
@@ -173,13 +175,22 @@ const Navbar = () => {
                     </Link>
                     : ""}
 
-                  {user &&
+                  {/* {user &&
                     <a onClick={handleLogout}
                       className="text-sm font-medium text-gray-700 cursor-pointer  " style={{ color: mode === 'dark' ? 'white' : '', }}>
                       Logout
                     </a>
-                  }
-
+                  } */}
+                  
+                    <a 
+                      className="text-sm font-medium text-gray-700 cursor-pointer  " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                     {user ? <a onClick={handleLogout}>Logout</a> 
+                            : <a onClick={handleLogin}>Login</a> 
+                          // : <p>Login</p>
+                        } 
+                    </a>
+                  
+                
                 </div>
 
                 <div className="hidden lg:ml-8 lg:flex">

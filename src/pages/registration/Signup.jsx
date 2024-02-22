@@ -35,7 +35,7 @@ export const Signup = () => {
             const userRef = collection(fireDB,"users");
             await addDoc(userRef, user);
 
-          //  window.location.href="/"
+            window.location.href="/login"
 
             setName("");
             setEmail("");
