@@ -6,6 +6,7 @@ import { FiSun } from 'react-icons/fi'
 import { Dialog, Transition } from '@headlessui/react'
 import { RxCross2 } from 'react-icons/rx'
 import { useSelector } from 'react-redux';
+import { USER_AVATAR } from '../../utils/constant';
 
 const Navbar = () => {
 
@@ -154,8 +155,9 @@ const Navbar = () => {
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
                 <Link to={'/'} className='flex'>
-                  <div className="flex ">
-                    <h1 className=' text-2xl font-bold text-black  px-2 py-1 rounded' style={{ color: mode === 'dark' ? 'white' : '', }}>E-Bharat</h1>
+                  <div className="flex  top-0 bottom-0 py-4">
+                    {/* <h1 className=' text-2xl font-bold text-black  px-2 py-1 rounded' style={{ color: mode === 'dark' ? 'white' : '', }}>E-Bharat</h1> */}
+                    <img className='w-56 h-56 mt-4  rounded' src='src\assets\BazaarIndia-logos_transparent.png' />
                   </div>
                 </Link>
               </div>
@@ -211,7 +213,8 @@ const Navbar = () => {
                     <img
                       onClick={toggleDropdown}
                       className="inline-block w-10 h-10 rounded-full object-cover"
-                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
+                      // src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
+                      src={USER_AVATAR}
                       alt="user icon" />
                   </a>
                   </div>

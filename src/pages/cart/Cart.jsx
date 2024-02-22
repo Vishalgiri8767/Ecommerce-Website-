@@ -17,7 +17,7 @@ function Cart() {
   const [totalAmount, setTotalAmount] = useState(0);
 
   const cartItems = useSelector((state) => state.cart);
-  console.log(cartItems);
+ // console.log(cartItems);
 
   const deleteProductFromCart = (item) => {
     dispatch(deleteFromCart(item));

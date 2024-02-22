@@ -8,7 +8,7 @@ function Order() {
   const context = useContext(myContext);
   const { mode, loading, order } = context;
 
-  console.log(order.length);
+  //console.log(order.length);
   
   return (
 
@@ -17,7 +17,8 @@ function Order() {
 
         <>
         { 
-        order.length < 4 ? 
+        // order.length < 4 ? 
+        
         <>                                  
          <div className=" h-full pt-10">
             {
@@ -51,8 +52,8 @@ function Order() {
             }
           </div>
           </>
-          :
-          <h1 className="mb-10 py-32 text-center text-2xl  font-bold">No orders yet? No problem! Take your time to explore our enchanting assortment and make selections that speak to your soul</h1>
+      //    :
+      //    <h1 className="mb-10 py-32 text-center text-2xl  font-bold">No orders yet? No problem! Take your time to explore our enchanting assortment and make selections that speak to your soul</h1>
         }
         </>
       
