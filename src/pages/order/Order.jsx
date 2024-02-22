@@ -14,9 +14,12 @@ function Order() {
 
     <Layout>
       {loading && <Loader />}
-      
+
         <>
-          <div className=" h-full pt-10">
+        { 
+        order.length < 4 ? 
+        <>                                  
+         <div className=" h-full pt-10">
             {
               order.filter(obj => obj.userid == userid).map((order,index) => {
                 
@@ -47,6 +50,10 @@ function Order() {
               })
             }
           </div>
+          </>
+          :
+          <h1 className="mb-10 py-32 text-center text-2xl  font-bold">No orders yet? No problem! Take your time to explore our enchanting assortment and make selections that speak to your soul</h1>
+        }
         </>
       
     </Layout>

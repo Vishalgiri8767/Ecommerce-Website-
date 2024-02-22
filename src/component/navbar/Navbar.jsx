@@ -30,7 +30,7 @@ const Navbar = () => {
     setIsDropDownOpen(!isDropDownOpen);
   };
 
-  
+
   return (
     <div className='bg-white sticky top-0 z-50 '>
       {/* for mobile phone */}
@@ -133,7 +133,7 @@ const Navbar = () => {
       {/* for desktop */}
       <header className="relative bg-white">
         <p className="flex h-10 items-center justify-center bg-pink-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8" style={{ backgroundColor: mode === 'dark' ? 'rgb(62 64 66)' : '', color: mode === 'dark' ? 'white' : '', }}>
-          Get free delivery on orders over ₹300
+          Get free delivery on orders over ₹3000
         </p>
 
         <nav aria-label="Top" className="bg-gray-100 px-4 sm:px-6 lg:px-8 shadow-xl " style={{ backgroundColor: mode === 'dark' ? '#282c34' : '', color: mode === 'dark' ? 'white' : '', }}>
@@ -183,9 +183,10 @@ const Navbar = () => {
 
                   <a
                     className="text-sm font-medium text-gray-700 cursor-pointer  " style={{ color: mode === 'dark' ? 'white' : '', }}>
-                    {user ? <a onClick={handleLogout}>Logout</a>
-                      : <a onClick={handleLogin}>Login</a>
-                      // : <p>Login</p>
+
+                    {!user &&
+                        
+                        <a onClick={handleLogin}>Login</a>
                     }
                   </a>
 
@@ -218,10 +219,10 @@ const Navbar = () => {
 
                   {  
                   isDropDownOpen &&
-                  <div className="absolute bg-[#333333] text-slate-400 mt-14 w-60 right-2 p-2 rounded-lg shadow-lg">
+                  <div className="absolute bg-[#333333] text-slate-400 mt-28 w-48 right-2 p-2 rounded-lg shadow-lg">
                     <ul >
                       <li className='cursor-pointer hover:text-white'>
-                      <div className="">Hey {user?.user?.email}👋 </div>
+                      <div className=""> {user?.user?.email} </div>
                       </li>
                       {/* <button onClick={handleSingOut}>Sign out</button> */}
                       <li className='cursor-pointer hover:text-white'>

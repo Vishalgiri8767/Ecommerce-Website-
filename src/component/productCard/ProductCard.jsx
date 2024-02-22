@@ -5,31 +5,32 @@ import { addTocart } from '../../redux/cartSlice';
 import { toast } from 'react-toastify';
 
 function ProductCard() {
-    
+
     const context = useContext(myContext)
-    const { mode, product,searchkey,setSearchkey,filterType,setFilterType,filterPrice,setFilterPrice } = context;
-    
+    const { mode, product, searchkey, setSearchkey, filterType, setFilterType, filterPrice, setFilterPrice } = context;
+
     const [isUserActive, setIsUserActive] = useState(false);
     const dispatch = useDispatch();
-    const cartItems = useSelector((state)=>state.cart);
+    const cartItems = useSelector((state) => state.cart);
     //console.log(cartItems);
-    
+
     const user = JSON.parse(localStorage.getItem('user'));
-   // console.log(user);
+    // console.log(user);
+    
+    // setIsUserActive(user);
 
-   // setIsUserActive(user);
+    const addCart = (product) => {
+        
+        dispatch(addTocart(product));
+        toast.success("Item added");
 
-    const addCart = (product)=>{
-            dispatch(addTocart(product));
-            toast.success("Item added");
-      
     };
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cartItems));
-      }, [cartItems])
+    }, [cartItems])
 
-      return (
+    return (
 
         <section className="text-gray-600 body-font">
             <div className="container px-5 py-8 md:py-16 mx-auto">
@@ -40,37 +41,37 @@ function ProductCard() {
 
                 <div className="flex flex-wrap -m-4">
 
-                {product.filter((obj)=> obj.title.toLowerCase().includes(searchkey))
-                    .filter((obj) => obj.category.toLowerCase().includes(filterType)).map((item, index) => {
+                    {product.filter((obj) => obj.title.toLowerCase().includes(searchkey))
+                        .filter((obj) => obj.category.toLowerCase().includes(filterType)).map((item, index) => {
 
-                    const {title,prize,description, id, imageUrl} = item;
+                            const { title, prize, description, id, imageUrl } = item;
 
-                    return(
-                        <div 
-                        
-                        key={id} className="p-4 md:w-1/4  drop-shadow-lg " >
-                        <div className="h-full border-2 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out    border-gray-200 border-opacity-60 rounded-2xl overflow-hidden" style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '', }} >
-                            <div onClick={()=> window.location.href = `/productinfo/${id}`} className="flex justify-center cursor-pointer" >
-                                <img className=" rounded-2xl w-full h-80 p-2 hover:scale-110 transition-scale-110  duration-300 ease-in-out" src={imageUrl} alt="blog" />
-                            </div>
-                            <div className="p-5 border-t-2">
-                                <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1" style={{ color: mode === 'dark' ? 'white' : '', }}>E-Bharat</h2>
-                                <h1 className="title-font text-lg font-medium text-gray-900 mb-3" style={{ color: mode === 'dark' ? 'white' : '', }}>{title}</h1>
-                                {/* <p className="leading-relaxed mb-3">{item.description.}</p> */}
-                                <p className="leading-relaxed mb-3" style={{ color: mode === 'dark' ? 'white' : '' }}>₹ {prize}</p>
+                            return (
+                                <div
 
-                                <div className=" flex justify-center">
-                                    <button 
-                                    
-                                        onClick={()=>addCart(item)}
-                                        type="button" className="focus:outline-none text-white bg-pink-600 hover:bg-pink-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full  py-2">Add To Cart</button>
+                                    key={id} className="p-4 md:w-1/4  drop-shadow-lg " >
+                                    <div className="h-full border-2 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out    border-gray-200 border-opacity-60 rounded-2xl overflow-hidden" style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '', }} >
+                                        <div onClick={() => window.location.href = `/productinfo/${id}`} className="flex justify-center cursor-pointer" >
+                                            <img className=" rounded-2xl w-full h-80 p-2 hover:scale-110 transition-scale-110  duration-300 ease-in-out" src={imageUrl} alt="blog" />
+                                        </div>
+                                        <div className="p-5 border-t-2">
+                                            <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1" style={{ color: mode === 'dark' ? 'white' : '', }}>E-Bharat</h2>
+                                            <h1 className="title-font text-lg font-medium text-gray-900 mb-3" style={{ color: mode === 'dark' ? 'white' : '', }}>{title}</h1>
+                                            {/* <p className="leading-relaxed mb-3">{item.description.}</p> */}
+                                            <p className="leading-relaxed mb-3" style={{ color: mode === 'dark' ? 'white' : '' }}>₹ {prize}</p>
+
+                                            <div className=" flex justify-center">
+                                                <button
+
+                                                    onClick={() => addCart(item)}
+                                                    type="button" className="focus:outline-none text-white bg-pink-600 hover:bg-pink-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full  py-2">Add To Cart</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    )
-                 })}
+                            )
+                        })}
                 </div>
             </div>
         </section >
