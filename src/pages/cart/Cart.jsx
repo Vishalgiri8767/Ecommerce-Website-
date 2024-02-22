@@ -81,6 +81,9 @@ function Cart() {
       key:ROZORPAY_KEY,
       key_secret:ROZORPAY_SECRET_KEY,
 
+      // key:import.meta.env.VITE_ROZORPAY_KEY,
+      // key_secret:import.meta.env.VITE_ROZORPAY_SECRET_KEY,
+
       amount: parseInt(grandTotal * 100),
       currency: "INR",
       order_receipt: 'order_rcptid_' + name,
