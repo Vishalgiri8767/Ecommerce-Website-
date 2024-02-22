@@ -11,6 +11,7 @@ const Navbar = () => {
 
   const context = useContext(myContext);
   const [open, setOpen] = useState(false);
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const user = JSON.parse(localStorage.getItem('user'));
   //console.log(user?.user?.email);
 
@@ -21,10 +22,15 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.clear('user');
     window.location.href = "/login";
-  }
-  const handleLogin =()=>{
+  };
+  const handleLogin = () => {
     window.location.href = "/login"
-  }
+  };
+  const toggleDropdown = () => {
+    setIsDropDownOpen(!isDropDownOpen);
+  };
+
+  
   return (
     <div className='bg-white sticky top-0 z-50 '>
       {/* for mobile phone */}
@@ -175,22 +181,15 @@ const Navbar = () => {
                     </Link>
                     : ""}
 
-                  {/* {user &&
-                    <a onClick={handleLogout}
-                      className="text-sm font-medium text-gray-700 cursor-pointer  " style={{ color: mode === 'dark' ? 'white' : '', }}>
-                      Logout
-                    </a>
-                  } */}
-                  
-                    <a 
-                      className="text-sm font-medium text-gray-700 cursor-pointer  " style={{ color: mode === 'dark' ? 'white' : '', }}>
-                     {user ? <a onClick={handleLogout}>Logout</a> 
-                            : <a onClick={handleLogin}>Login</a> 
-                          // : <p>Login</p>
-                        } 
-                    </a>
-                  
-                
+                  <a
+                    className="text-sm font-medium text-gray-700 cursor-pointer  " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                    {user ? <a onClick={handleLogout}>Logout</a>
+                      : <a onClick={handleLogin}>Login</a>
+                      // : <p>Login</p>
+                    }
+                  </a>
+
+
                 </div>
 
                 <div className="hidden lg:ml-8 lg:flex">
@@ -203,14 +202,35 @@ const Navbar = () => {
                     <span className="ml-3 block text-sm font-medium" style={{ color: mode === 'dark' ? 'white' : '', }}>INDIA</span>
                   </a>
                 </div>
-                <div className="hidden lg:ml-8 lg:flex">
+
+              {  
+              user &&
+              <div className="hidden lg:ml-8 lg:flex">
                   <a href="#" className="flex items-center text-gray-700 ">
                     <img
+                      onClick={toggleDropdown}
                       className="inline-block w-10 h-10 rounded-full object-cover"
                       src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
-                      alt="Dan_Abromov" />
+                      alt="user icon" />
                   </a>
-                </div>
+                  </div>
+                  }
+
+                  {  
+                  isDropDownOpen &&
+                  <div className="absolute bg-[#333333] text-slate-400 mt-14 w-60 right-2 p-2 rounded-lg shadow-lg">
+                    <ul >
+                      <li className='cursor-pointer hover:text-white'>
+                      <div className="">Hey {user?.user?.email}👋 </div>
+                      </li>
+                      {/* <button onClick={handleSingOut}>Sign out</button> */}
+                      <li className='cursor-pointer hover:text-white'>
+                        <div><span onClick={handleLogout}>Logout</span></div>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  }
 
                 {/* Search */}
                 <div className="flex lg:ml-6">
@@ -225,7 +245,9 @@ const Navbar = () => {
                 </div>
 
                 {/* Cart */}
-                <div className="ml-4 flow-root lg:ml-6">
+                {
+                  user &&
+                  <div className="ml-4 flow-root lg:ml-6">
                   <Link to={'/cart'} className="group -m-2 flex items-center p-2" style={{ color: mode === 'dark' ? 'white' : '', }}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
@@ -235,6 +257,8 @@ const Navbar = () => {
                     <span className="sr-only">items in cart, view bag</span>
                   </Link>
                 </div>
+                
+                }
 
                 {/* {!user &&
                   <Link to={'/login'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
