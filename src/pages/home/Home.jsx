@@ -8,17 +8,16 @@ import AskGPT from '../../component/chatBot/ChatBot'
 
 export const Home = () => {
  
-  const [showChatbot, setShowChatbot] = useState(false);
+  const [showChatbot, setShowChatbot] = useState(true);
 
   const handleChatbot = ()=>{
     setShowChatbot(!showChatbot);
     
   }
-  console.log(showChatbot);
+  //console.log(showChatbot);
 
   return (
     <div>
-      
       <Layout>
           <HeroSection/>
           <Filter/>
@@ -36,8 +35,6 @@ export const Home = () => {
           null
          }
           <Testimonial/>
-
-        
 
       </Layout>
     </div>

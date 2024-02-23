@@ -15,6 +15,7 @@ const Navbar = () => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const user = JSON.parse(localStorage.getItem('user'));
   //console.log(user?.user?.email);
+  //console.log(user)
 
   const { mode, toggleMode } = context;
   const cartItems = useSelector((state) => state.cart);
@@ -30,7 +31,6 @@ const Navbar = () => {
   const toggleDropdown = () => {
     setIsDropDownOpen(!isDropDownOpen);
   };
-
 
   return (
     <div className='bg-white sticky top-0 z-50 '>

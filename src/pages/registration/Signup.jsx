@@ -27,13 +27,15 @@ export const Signup = () => {
             console.log(users);
 
             const user ={
-                name:name,
+                name:users.user.name,
                 email: users.user.email,
                 uid:users.user.uid,
                 time:Timestamp.now()
             };
             const userRef = collection(fireDB,"users");
             await addDoc(userRef, user);
+            localStorage.setItem('userName', JSON.stringify(user.name));
+            
 
             window.location.href="/login"
 
