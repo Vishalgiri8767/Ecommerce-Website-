@@ -156,10 +156,15 @@ const Navbar = () => {
               <div className="ml-4 flex lg:ml-0">
                 <Link to={'/'} className='flex'>
                   <div className="flex  top-0 bottom-0 py-4">
-                    {/* <h1 className=' text-2xl font-bold text-black  px-2 py-1 rounded' style={{ color: mode === 'dark' ? 'white' : '', }}>E-Bharat</h1> */}
                     <img className='w-56 h-56 mt-4  rounded' src='src\assets\BazaarIndia-logos_transparent.png' />
                   </div>
                 </Link>
+               </div>
+               <div>
+                  <Link to={"/askgpt"}>
+                    AskGPT
+                  </Link>
+                
               </div>
 
               <div className="ml-auto flex items-center">
