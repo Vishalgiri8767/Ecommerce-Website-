@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //import { getMessage } from '@reduxjs/toolkit/dist/actionCreatorInvariantMiddleware';
 import openai from '../../utils/openai';
 import Layout from '../layout/Layout'
@@ -46,6 +47,28 @@ const ChatBot = () => {
     <div class="mb-2 pr-2 pt-4 text-right">{gptMessage}</div>
 
 
+=======
+import Layout from '../layout/Layout'
+import React, { useState } from 'react';
+
+const ChatBot = () => {
+  const [messages, setMessages] = useState([]);
+  const [inputValue, setInputValue] = useState('');
+
+  const handleMessageSubmit = (e) => {
+    e.preventDefault();
+    if (inputValue.trim() !== '') {
+      // Here you can implement your logic to handle the user's message
+      // For simplicity, let's just echo back the user's message for now
+      setMessages([...messages, { sender: 'user', text: inputValue }]);
+      setInputValue('');
+    }
+  };
+
+  return (
+    <div className="fixed bottom-0 right-0 z-50 mr-16 mb-12 ">
+      <div className="bg-white rounded-lg border border-gray-300 shadow-md w-72">
+>>>>>>> 87f25f73d23da6e1f4b69ec89551d7b4e342626f
         <div className="p-4">
           <div className="h-72 overflow-y-auto">
             {messages.map((message, index) => (
