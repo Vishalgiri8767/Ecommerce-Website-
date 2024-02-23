@@ -14,6 +14,7 @@ import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import MyState from './context/data/myState'
 import Order from './pages/order/Order'
+import ChatBot from './component/chatBot/ChatBot'
 
 function App() {
 
@@ -25,6 +26,8 @@ function App() {
           <Route path='/' element={<Home/>} />
           <Route path='/cart' element={<Cart/>} />
           <Route path='/home' element={<Home/>} />
+        {/* <Route path='/help' element={<ChatBot />} /> */}
+
           <Route path='/order' element={
             <ProtectedRoute>
               <Order/>
