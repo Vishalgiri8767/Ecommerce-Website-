@@ -39,10 +39,10 @@ const ChatBot = () => {
       <div className="bg-white rounded-lg border border-gray-300 shadow-md w-72">
       
      
-      <div class="mb-2 pr-2 pt-4 text-right">Hello, How Can I help you?</div>
+      <div className="mb-2 pr-2 pt-4 text-right">Hello, How Can I help you?</div>
       
 
-    <div class="mb-2 pr-2 pt-4 text-right">{gptMessage}</div>
+    <div className="mb-2 pr-2 pt-4 text-right">{gptMessage}</div>
 
 
         <div className="p-4">

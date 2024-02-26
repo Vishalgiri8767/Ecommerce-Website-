@@ -16,8 +16,11 @@ export function Filter() {
     };
 
     const productsToDisplay = sortedProducts.length > 0 ? sortedProducts : product;
+    
+    const handleResetFilter = ()=>{
+        
 
-
+    }
     return (
 
         <div>
@@ -46,7 +49,9 @@ export function Filter() {
                         <p className="font-medium">
                             Filters
                         </p>
-                        <button className="px-4 py-2 bg-gray-50hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md" style={{ color: mode === 'dark' ? 'white' : '' }}>
+                        <button
+                            onClick={(e)=>setFilterType(e.target.value==null)}
+                        className="px-4 py-2 bg-gray-50hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md" style={{ color: mode === 'dark' ? 'white' : '' }}>
                             Reset Filter
                         </button>
                     </div>
@@ -56,6 +61,7 @@ export function Filter() {
                                 onChange={(e) => setFilterType(e.target.value)}
                                 className="px-4 py-3 w-full rounded-md bg-gray-50 border-transparent outline-0 focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" style={{ backgroundColor: mode === 'dark' ? 'rgb(64 66 70)' : '', color: mode === 'dark' ? 'white' : '', }}>
                                 {/* <option value="jacket">Jacket</option> */}
+                                <option value="">select category</option>
                                 {product.map((item) => {
                                     return (
                                         <option key={item.id} value={item.category}>{item.category}</option>
@@ -63,19 +69,12 @@ export function Filter() {
                                 })}
                             </select>
 
+                           <select name="" id="">
+                                <option value="">sort by</option>
+                                <option value="">low to high</option>
+                                <option value="">high to low</option>
 
-
-                            <select  className="px-4 py-3 w-full rounded-md bg-gray-50 border-transparent outline-0 focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" style={{ backgroundColor: mode === 'dark' ? 'rgb(64 66 70)' : '', color: mode === 'dark' ? 'white' : '' }}>
-                                {/* <option value="">Sort by</option> */}
-                                {
-                                    productsToDisplay.map((item) => {
-                                        return (
-                                            <option value={item}>low to high</option>
-                                        )
-                                    })}
-                                <option value="lowToHigh">Low to High</option>
-                            </select>
-
+                           </select>
                         </div>
                     </div>
                 </div>
