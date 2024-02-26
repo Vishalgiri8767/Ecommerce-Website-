@@ -56,9 +56,9 @@ export function Filter() {
                                 onChange={(e) => setFilterType(e.target.value)}
                                 className="px-4 py-3 w-full rounded-md bg-gray-50 border-transparent outline-0 focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" style={{ backgroundColor: mode === 'dark' ? 'rgb(64 66 70)' : '', color: mode === 'dark' ? 'white' : '', }}>
                                 {/* <option value="jacket">Jacket</option> */}
-                                {product.map((item, index) => {
+                                {product.map((item) => {
                                     return (
-                                        <option value={item.category}>{item.category}</option>
+                                        <option key={item.id} value={item.category}>{item.category}</option>
                                     )
                                 })}
                             </select>
