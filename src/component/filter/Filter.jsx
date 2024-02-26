@@ -63,17 +63,6 @@ export function Filter() {
                                 })}
                             </select>
 
-                            <select
-                                value={filterPrice}
-                                onChange={(e) => setFilterPrice(e.target.value)}
-                                className="px-4 py-3 w-full rounded-md bg-gray-50 border-transparent outline-0  focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" style={{ backgroundColor: mode === 'dark' ? 'rgb(64 66 70)' : '', color: mode === 'dark' ? 'white' : '', }}>
-                                {/* <option value="100">100</option> */}
-                                {product.map((item, index) => {
-                                    return (
-                                        <option value={item.prize}>{item.prize}</option>
-                                    )
-                                })}
-                            </select>
 
 
                             <select  className="px-4 py-3 w-full rounded-md bg-gray-50 border-transparent outline-0 focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" style={{ backgroundColor: mode === 'dark' ? 'rgb(64 66 70)' : '', color: mode === 'dark' ? 'white' : '' }}>
