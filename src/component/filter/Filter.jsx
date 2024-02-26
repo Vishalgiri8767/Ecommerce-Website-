@@ -49,8 +49,9 @@ export function Filter() {
                         <p className="font-medium">
                             Filters
                         </p>
+
                         <button
-                            onClick={(e)=>setFilterType(e.target.value==null)}
+                            onClick={(e)=>setFilterType(e.target.value)}
                         className="px-4 py-2 bg-gray-50hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md" style={{ color: mode === 'dark' ? 'white' : '' }}>
                             Reset Filter
                         </button>
@@ -73,7 +74,6 @@ export function Filter() {
                                 <option value="">sort by</option>
                                 <option value="">low to high</option>
                                 <option value="">high to low</option>
-
                            </select>
                         </div>
                     </div>
