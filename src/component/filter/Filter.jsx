@@ -7,7 +7,6 @@ export function Filter() {
     const { mode, searchkey, setSearchkey, filterType, setFilterType, filterPrice, setFilterPrice, product } = context
     const [sortedProducts, setSortedProducts] = useState([]);
 
-
     const handleSortLowtoHigh = () => {
         const sortedProducts = [...product].sort((a, b) => a.prize - b.prize);
         console.log(sortedProducts);
@@ -17,10 +16,7 @@ export function Filter() {
 
     const productsToDisplay = sortedProducts.length > 0 ? sortedProducts : product;
     
-    const handleResetFilter = ()=>{
-        
 
-    }
     return (
 
         <div>
@@ -30,6 +26,7 @@ export function Filter() {
                         backgroundColor: mode === 'dark' ? '#282c34' : '',
                         color: mode === 'dark' ? 'white' : '',
                     }}>
+                        
                     <div className="relative">
                         <div className="absolute flex items-center ml-2 h-full">
                             <svg className="w-4 h-4 fill-current text-primary-gray-dark" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,13 +42,14 @@ export function Filter() {
                             placeholder="Search here"
                             className="px-8 py-3 w-full rounded-md bg-violet-0 border-transparent outline-0 text-sm" style={{ backgroundColor: mode === 'dark' ? 'rgb(64 66 70)' : '', color: mode === 'dark' ? 'white' : '', }} />
                     </div>
+
                     <div className="flex items-center justify-between mt-4">
                         <p className="font-medium">
                             Filters
                         </p>
 
                         <button
-                            onClick={(e)=>setFilterType(e.target.value)}
+                            onClick={(e)=>setFilterType(e.target.value) }
                         className="px-4 py-2 bg-gray-50hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md" style={{ color: mode === 'dark' ? 'white' : '' }}>
                             Reset Filter
                         </button>
@@ -61,7 +59,6 @@ export function Filter() {
                             <select value={filterType}
                                 onChange={(e) => setFilterType(e.target.value)}
                                 className="px-4 py-3 w-full rounded-md bg-gray-50 border-transparent outline-0 focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" style={{ backgroundColor: mode === 'dark' ? 'rgb(64 66 70)' : '', color: mode === 'dark' ? 'white' : '', }}>
-                                {/* <option value="jacket">Jacket</option> */}
                                 <option value="">select category</option>
                                 {product.map((item) => {
                                     return (
@@ -69,12 +66,24 @@ export function Filter() {
                                     )
                                 })}
                             </select>
+                            <select value={filterType}
+                                onChange={(e) => setFilterType(e.target.value)}
+                                className="px-4 py-3 w-full rounded-md bg-gray-50 border-transparent outline-0 focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" style={{ backgroundColor: mode === 'dark' ? 'rgb(64 66 70)' : '', color: mode === 'dark' ? 'white' : '', }}>
+                                <option value="">sort by</option>
+                                {sortedProducts.map((item) => {
+                                    return (
+                                        <option key={item.id} >{item}</option>
+                                    )
+                                })}
+                            </select>
 
-                           <select name="" id="">
+                           {/* <select onClick={handleSortLowtoHigh} name="" id="">
                                 <option value="">sort by</option>
                                 <option value="">low to high</option>
                                 <option value="">high to low</option>
-                           </select>
+                           </select> */}
+
+
                         </div>
                     </div>
                 </div>

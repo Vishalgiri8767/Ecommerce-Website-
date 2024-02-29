@@ -8,7 +8,7 @@ import AskGPT from '../../component/chatBot/ChatBot'
 
 export const Home = () => {
  
-  const [showChatbot, setShowChatbot] = useState(true);
+  const [showChatbot, setShowChatbot] = useState(false);
 
   const handleChatbot = ()=>{
     setShowChatbot(!showChatbot);

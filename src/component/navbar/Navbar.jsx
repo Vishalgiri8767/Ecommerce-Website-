@@ -153,18 +153,19 @@ const Navbar = () => {
               </button>
 
               {/* Logo */}
-              <div className="ml-4 flex lg:ml-0">
+              {/* <div className="ml-4 flex lg:ml-0">
                 <Link to={'/'} className='flex'>
                   <div className="flex  top-0 bottom-0 py-4">
-                    <img className='w-56 h-56 mt-4  rounded' src='src\assets\BazaarIndia-logos_transparent.png' />
+                    <img className='w-56  h-56 mt-4  rounded' src='src\assets\BazaarIndia-logos_transparent.png' />
                   </div>
                 </Link>
-               </div>
-               <div>
-                  <Link to={"/askgpt"}>
-                    AskGPT
-                  </Link>
-                
+               </div> */}
+            
+              <div>
+                <Link to={"/"}>
+                 <span className='font-bold text-2xl text-green-500 font-serif'>BAZAARINDIA</span> 
+                </Link>
+
               </div>
 
               <div className="ml-auto flex items-center">
@@ -192,8 +193,8 @@ const Navbar = () => {
                     className="text-sm font-medium text-gray-700 cursor-pointer  " style={{ color: mode === 'dark' ? 'white' : '', }}>
 
                     {!user &&
-                        
-                        <a onClick={handleLogin}>Login</a>
+
+                      <a onClick={handleLogin}>Login</a>
                     }
                   </a>
 
@@ -211,26 +212,26 @@ const Navbar = () => {
                   </a>
                 </div>
 
-              {  
-              user &&
-              <div className="hidden lg:ml-8 lg:flex">
-                  <a href="#" className="flex items-center text-gray-700 ">
-                    <img
-                      onClick={toggleDropdown}
-                      className="inline-block w-10 h-10 rounded-full object-cover"
-                      // src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
-                      src={USER_AVATAR}
-                      alt="user icon" />
-                  </a>
+                {
+                  user &&
+                  <div className="hidden lg:ml-8 lg:flex">
+                    <a href="#" className="flex items-center text-gray-700 ">
+                      <img
+                        onClick={toggleDropdown}
+                        className="inline-block w-10 h-10 rounded-full object-cover"
+                        // src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
+                        src={USER_AVATAR}
+                        alt="user icon" />
+                    </a>
                   </div>
-                  }
+                }
 
-                  {  
+                {
                   isDropDownOpen &&
                   <div className="absolute bg-[#333333] text-slate-400 mt-28 w-48 right-2 p-2 rounded-lg shadow-lg">
                     <ul >
                       <li className='cursor-pointer hover:text-white'>
-                      <div className=""> {user?.user?.email} </div>
+                        <div className=""> {user?.user?.email} </div>
                       </li>
                       {/* <button onClick={handleSingOut}>Sign out</button> */}
                       <li className='cursor-pointer hover:text-white'>
@@ -238,8 +239,8 @@ const Navbar = () => {
                       </li>
                     </ul>
                   </div>
-                  
-                  }
+
+                }
 
                 {/* Search */}
                 <div className="flex lg:ml-6">
@@ -257,16 +258,16 @@ const Navbar = () => {
                 {
                   user &&
                   <div className="ml-4 flow-root lg:ml-6">
-                  <Link to={'/cart'} className="group -m-2 flex items-center p-2" style={{ color: mode === 'dark' ? 'white' : '', }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                    </svg>
+                    <Link to={'/cart'} className="group -m-2 flex items-center p-2" style={{ color: mode === 'dark' ? 'white' : '', }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                      </svg>
 
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-" style={{ color: mode === 'dark' ? 'white' : '', }}>{cartItems.length}</span>
-                    <span className="sr-only">items in cart, view bag</span>
-                  </Link>
-                </div>
-                
+                      <span className="ml-2 text-sm font-medium text-gray-700 group-" style={{ color: mode === 'dark' ? 'white' : '', }}>{cartItems.length}</span>
+                      <span className="sr-only">items in cart, view bag</span>
+                    </Link>
+                  </div>
+
                 }
 
                 {/* {!user &&

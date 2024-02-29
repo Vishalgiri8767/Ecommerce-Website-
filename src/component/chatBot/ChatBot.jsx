@@ -1,6 +1,7 @@
 import openai from '../../utils/openai';
 import React, { useEffect, useState } from 'react';
 
+
 const ChatBot = () => {
   
   const [messages, setMessages] = useState([]);
@@ -13,7 +14,7 @@ const ChatBot = () => {
      if (inputValue.trim() !== '') {
        // Here you can implement your logic to handle the user's message
        // For simplicity, let's just echo back the user's message for now
-       setMessages([...messages, { sender: 'user', text: inputValue }]);
+      // setMessages([...messages, { sender: 'user', text: inputValue }]);
        setInputValue('');
        handleGptResult();
      }
@@ -26,11 +27,11 @@ const ChatBot = () => {
         messages: [{ role: 'user', content: query }],
         model: 'gpt-3.5-turbo',
       });
-    // console.log(gptResults.choices?.[0]?.message?.content);
-     const result =gptResults.choices?.message?.content;
+     console.log(gptResults.choices?.[0]?.message?.content);
+    // const result =gptResults.choices?.message?.content;
+      const result = gptResults.choices?.[0]?.message?.content;
+    console.log(inputValue);
     
-
-     setGptMessage(result);
       
   }
   
@@ -39,7 +40,7 @@ const ChatBot = () => {
       <div className="bg-white rounded-lg border border-gray-300 shadow-md w-72">
       
      
-      <div className="mb-2 pr-2 pt-4 text-right">Hello, How Can I help you?</div>
+      <div className="mb-2 pr-2 pt-4 text-right"></div>
       
 
     <div className="mb-2 pr-2 pt-4 text-right">{gptMessage}</div>
@@ -47,11 +48,13 @@ const ChatBot = () => {
 
         <div className="p-4">
           <div className="h-72 overflow-y-auto">
+
             {messages.map((message, index) => (
               <div key={index} className={`mb-2 ${message.sender === 'user' ? 'text-right' : ''}`}>
                 {message.text}
               </div>
             ))}
+
           </div>
           <form onSubmit={handleMessageSubmit}>
             <input
