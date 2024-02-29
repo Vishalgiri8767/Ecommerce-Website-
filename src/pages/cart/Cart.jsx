@@ -12,7 +12,7 @@ import { ROZORPAY_KEY, ROZORPAY_SECRET_KEY } from '../../utils/constant';
 function Cart() {
 
   const context = useContext(myContext)
-  const { mode, order } = context;
+  const { mode,  } = context;
   const dispatch = useDispatch();
   const [totalAmount, setTotalAmount] = useState(0);
 
@@ -41,7 +41,7 @@ function Cart() {
   const shippping = parseInt(100);
 
   //order.length>=0 && shippping===parseInt(0);
-  console.log(order.length);
+  //console.log(order.length);
   const grandTotal = shippping + totalAmount;
 
 
