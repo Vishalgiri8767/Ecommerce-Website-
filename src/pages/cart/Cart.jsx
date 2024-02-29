@@ -12,7 +12,7 @@ import { ROZORPAY_KEY, ROZORPAY_SECRET_KEY } from '../../utils/constant';
 function Cart() {
 
   const context = useContext(myContext)
-  const { mode } = context;
+  const { mode, order } = context;
   const dispatch = useDispatch();
   const [totalAmount, setTotalAmount] = useState(0);
 
@@ -39,6 +39,9 @@ function Cart() {
   }, [cartItems]);
 
   const shippping = parseInt(100);
+
+  //order.length>=0 && shippping===parseInt(0);
+  console.log(order.length);
   const grandTotal = shippping + totalAmount;
 
 
@@ -85,6 +88,7 @@ function Cart() {
       // key_secret:import.meta.env.VITE_ROZORPAY_SECRET_KEY,
 
       amount: parseInt(grandTotal * 100),
+
       currency: "INR",
       order_receipt: 'order_rcptid_' + name,
       name: "E-Bharat",
@@ -196,7 +200,7 @@ function Cart() {
               </div>
               <div className="flex justify-between">
                 <p className="text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>Shipping</p>
-                <p className="text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>₹{totalAmount<10000 ? shippping : shippping+100}</p>
+                <p className="text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>₹{totalAmount<5000 ? shippping : 0}</p>
               </div>
               <hr className="my-4" />
               <div className="flex justify-between mb-3">
