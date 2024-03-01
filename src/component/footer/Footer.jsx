@@ -2,6 +2,7 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import myContext from '../../context/data/myContext'
+import Contact from '../../pages/contact/Contact'
 
 export default function Footer() {
   const context = useContext(myContext)

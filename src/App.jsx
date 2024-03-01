@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import MyState from './context/data/myState'
 import Order from './pages/order/Order'
 import ChatBot from './component/chatBot/ChatBot'
+import Contact from './pages/contact/Contact'
 
 function App() {
 
@@ -26,6 +27,8 @@ function App() {
           <Route path='/' element={<Home/>} />
           <Route path='/cart' element={<Cart/>} />
           <Route path='/home' element={<Home/>} />
+          <Route path='/contact' element={<Contact/>} />
+          
         {/* <Route path='/help' element={<ChatBot />} /> */}
 
           <Route path='/order' element={
