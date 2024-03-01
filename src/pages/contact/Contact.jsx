@@ -1,6 +1,14 @@
 import React from "react";
 
 const Contact = () => {
+
+
+    const handleCustomerMsg = (e)=>{
+        e.preventDefault();
+
+
+    }
+
   return (
     <>
       <section className="relative z-10 overflow-hidden bg-white py-20 dark:bg-dark lg:py-[80px]">
@@ -112,7 +120,7 @@ const Contact = () => {
             </div>
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
               <div className="relative rounded-lg bg-white p-8 shadow-lg dark:bg-dark-2 sm:p-12">
-                <form>
+                <form onSubmit={handleCustomerMsg}>
                   <ContactInputBox
                     type="text"
                     name="name"
@@ -137,7 +145,7 @@ const Contact = () => {
                   <div>
                     <button
                       type="submit"
-                      className="w-full rounded border border-primary bg-primary p-3 text-white transition hover:bg-opacity-90"
+                      className="w-full rounded border border-primary bg-primary p-3 text-white transition hover:bg-opacity-90 hover:bg-blue-500"
                     >
                       Send Message
                     </button>
