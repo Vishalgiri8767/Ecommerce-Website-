@@ -125,6 +125,7 @@ const Contact = () => {
                     type="text"
                     name="name"
                     placeholder="Your Name"
+                    
                   />
                   <ContactInputBox
                     type="text"
@@ -141,6 +142,7 @@ const Contact = () => {
                     placeholder="Your Message"
                     name="details"
                     defaultValue=""
+                    
                   />
                   <div>
                     <button
