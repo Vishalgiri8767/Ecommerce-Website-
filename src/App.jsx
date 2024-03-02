@@ -16,6 +16,7 @@ import MyState from './context/data/myState'
 import Order from './pages/order/Order'
 import ChatBot from './component/chatBot/ChatBot'
 import Contact from './pages/contact/Contact'
+import About from './pages/about/About'
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
           <Route path='/cart' element={<Cart/>} />
           <Route path='/home' element={<Home/>} />
           <Route path='/contact' element={<Contact/>} />
+          <Route path='/about' element={<About/>} />
           
         {/* <Route path='/help' element={<ChatBot />} /> */}
 

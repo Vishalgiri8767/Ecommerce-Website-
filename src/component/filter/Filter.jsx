@@ -10,12 +10,14 @@ export function Filter() {
     const handleSortLowtoHigh = () => {
         const sortedProducts = [...product].sort((a, b) => a.prize - b.prize);
         console.log(sortedProducts);
+
+
         setSortedProducts(sortedProducts);
         // Update state with sorted products or perform any other action you want
     };
 
     const productsToDisplay = sortedProducts.length > 0 ? sortedProducts : product;
-    
+
 
     return (
 
@@ -26,7 +28,7 @@ export function Filter() {
                         backgroundColor: mode === 'dark' ? '#282c34' : '',
                         color: mode === 'dark' ? 'white' : '',
                     }}>
-                        
+
                     <div className="relative">
                         <div className="absolute flex items-center ml-2 h-full">
                             <svg className="w-4 h-4 fill-current text-primary-gray-dark" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -49,8 +51,8 @@ export function Filter() {
                         </p>
 
                         <button
-                            onClick={(e)=>setFilterType(e.target.value) }
-                        className="px-4 py-2 bg-gray-50hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md" style={{ color: mode === 'dark' ? 'white' : '' }}>
+                            onClick={(e) => setFilterType(e.target.value)}
+                            className="px-4 py-2 bg-gray-50hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md" style={{ color: mode === 'dark' ? 'white' : '' }}>
                             Reset Filter
                         </button>
                     </div>
@@ -66,22 +68,20 @@ export function Filter() {
                                     )
                                 })}
                             </select>
-                            <select value={filterType}
-                                onChange={(e) => setFilterType(e.target.value)}
-                                className="px-4 py-3 w-full rounded-md bg-gray-50 border-transparent outline-0 focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" style={{ backgroundColor: mode === 'dark' ? 'rgb(64 66 70)' : '', color: mode === 'dark' ? 'white' : '', }}>
-                                <option value="">sort by</option>
-                                {sortedProducts.map((item) => {
-                                    return (
-                                        <option key={item.id} >{item}</option>
-                                    )
-                                })}
-                            </select>
 
-                           {/* <select onClick={handleSortLowtoHigh} name="" id="">
+                            <select onClick={handleSortLowtoHigh} name="" id="">
                                 <option value="">sort by</option>
                                 <option value="">low to high</option>
                                 <option value="">high to low</option>
-                           </select> */}
+                            </select>
+
+                            {
+                                sortedProducts.map((item, key) => {
+                                    const { title, prize, imageUrl, id } = item;
+                                })
+
+                            }
+
 
 
                         </div>
