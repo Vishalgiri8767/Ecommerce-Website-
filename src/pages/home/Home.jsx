@@ -8,7 +8,7 @@ import ChatBot from '../../component/chatBot/ChatBot'
 
 export const Home = () => {
  
-  const [showChatbot, setShowChatbot] = useState(false);
+  const [showChatbot, setShowChatbot] = useState(true);
 
   const handleChatbot = ()=>{
     setShowChatbot(!showChatbot);

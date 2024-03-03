@@ -85,8 +85,8 @@ function ChatBot() {
   }
 
   return (
-    <div className=" fixed bottom-0 right-0  mr-16  w-96 overflow-y-auto max-h-96 border-2  ">
-      <div>
+    <div className=" fixed bottom-0 right-0 bg-white  mr-16  w-96 overflow-y-auto max-h-96 border-2  ">
+      <div className=' '>
         <MainContainer>
           <ChatContainer>       
             <MessageList 
@@ -98,7 +98,7 @@ function ChatBot() {
                 return <Message key={i} model={message} />
               })}
             </MessageList>
-            <MessageInput placeholder="Type message here" onSend={handleSend} />        
+            <MessageInput  placeholder="Type message here" onSend={handleSend} />        
           </ChatContainer>
         </MainContainer>
       </div>
