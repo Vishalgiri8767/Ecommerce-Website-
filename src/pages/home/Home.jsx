@@ -4,7 +4,7 @@ import  {HeroSection}  from '../../component/heroSection/HeroSection'
 import  Filter  from '../../component/filter/Filter'
 import  ProductCard  from '../../component/productCard/ProductCard'
 import Testimonial  from '../../component/testimonial/Testimonial'
-import AskGPT from '../../component/chatBot/ChatBot'
+import ChatBot from '../../component/chatBot/ChatBot'
 
 export const Home = () => {
  
@@ -30,7 +30,7 @@ export const Home = () => {
           </button>
 
           { showChatbot ? 
-          <AskGPT />
+          <ChatBot />
           :
           null
          }

@@ -1,6 +1,5 @@
 import './App.css'
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
-import { Home } from './pages/home/Home'
 import { NoPage } from './pages/nopage/NoPage'
 import { AllProduct } from './pages/allProduct/AllProduct'
 import { Login } from './pages/registration/Login'
@@ -14,9 +13,9 @@ import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import MyState from './context/data/myState'
 import Order from './pages/order/Order'
-import ChatBot from './component/chatBot/ChatBot'
 import Contact from './pages/contact/Contact'
 import About from './pages/about/About'
+import { Home } from './pages/home/Home'
 
 function App() {
 
