@@ -169,7 +169,7 @@ const Navbar = () => {
               </div>
 
               <div className="ml-auto flex items-center">
-                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-4">
 
                   <Link to={'/'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     All Products
@@ -201,7 +201,7 @@ const Navbar = () => {
 
                 </div>
 
-                <div className="hidden lg:ml-8 lg:flex">
+                <div className="hidden lg:ml-4 lg:flex">
                   <a href="#" className="flex items-center text-gray-700 ">
                     <img
                       src="https://ecommerce-sk.vercel.app/img/indiaflag.png"
@@ -214,7 +214,7 @@ const Navbar = () => {
 
                 {
                   user &&
-                  <div className="hidden lg:ml-8 lg:flex">
+                  <div className="hidden lg:ml-4 lg:flex">
                     <a href="#" className="flex items-center text-gray-700 ">
                       <img
                         onClick={toggleDropdown}
@@ -228,7 +228,7 @@ const Navbar = () => {
 
                 {
                   isDropDownOpen &&
-                  <div className="absolute bg-[#333333] text-slate-400 mt-28 w-48 right-2 p-2 rounded-lg shadow-lg">
+                  <div className="absolute bg-[#333333] text-slate-400 mt-28 w-48 right-2 p-2 rounded-lg shadow-lg ">
                     <ul >
                       <li className='cursor-pointer hover:text-white'>
                         <div className=""> {user?.user?.email} </div>
