@@ -2,8 +2,10 @@ import { useState } from 'react'
 import '../../App.css'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
+import { OPENAI_API_KEY } from '../../utils/constant';
 
-const API_KEY = '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';
+
+const API_KEY = OPENAI_API_KEY;
 // "Explain things like you would to a 10 year old learning how to code."
 const systemMessage = { //  Explain things like you're talking to a software professional with 5 years of experience.
   "role": "system", "content": "act like chatbot in ecommerce website and give answer as possible short and within a line"
