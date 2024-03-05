@@ -1,4 +1,5 @@
 import './App.css'
+import React from 'react'
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
 import { NoPage } from './pages/nopage/NoPage'
 import { AllProduct } from './pages/allProduct/AllProduct'

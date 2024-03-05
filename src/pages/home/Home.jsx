@@ -27,7 +27,7 @@ export const Home = () => {
 
           <button onClick={handleChatbot}
             className="fixed bottom-0 right-0 z-50 pr-4 pb-12" >
-            <img className='w-12 h-12 cursor-pointer' src='src\assets\bot_4712027.png'
+            <img className='w-12 h-12 cursor-pointer float-left' src='src\assets\bot_4712027.png'
               alt='chatbot' />
           </button>
 

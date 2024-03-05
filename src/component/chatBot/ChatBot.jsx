@@ -88,7 +88,7 @@ function ChatBot() {
     <div className=" fixed bottom-0 right-0 bg-white  mr-16  w-96 overflow-y-auto max-h-96 border-2  ">
       <div className=' '>
         <MainContainer>
-          <ChatContainer>       
+          <ChatContainer >       
             <MessageList 
               scrollBehavior="smooth" 
               typingIndicator={isTyping ? <TypingIndicator content="ChatGPT is typing" /> : null}
