@@ -4,11 +4,17 @@ const initialState = JSON.parse(localStorage.getItem('cart')) ??[];
 
 const cartSlice = createSlice({
     name:"cart",
-    initialState,
+    initialState:{
+        ProductWishlist:null,
+
+    },
 
     reducers:{
         addTocart(state, action){
             state.push(action.payload);
+        },
+        addToWishlist(state,action){
+            state.ProductWishlist = action.payload;
         },
         deleteFromCart(state,action){
             return state.filter(item=>item.id != action.payload.id);
@@ -16,5 +22,5 @@ const cartSlice = createSlice({
     }
 });
 
-export const {addTocart, deleteFromCart} = cartSlice.actions;
+export const {addTocart,addToWishlist, deleteFromCart} = cartSlice.actions;
 export default cartSlice.reducer;
