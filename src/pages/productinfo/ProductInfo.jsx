@@ -55,10 +55,11 @@ function ProductInfo() {
         localStorage.setItem('cart', JSON.stringify(cartItems));
     }, [cartItems]);
 
-    const addWishlist = (params)=>{
+    const addWishlist = ()=>{
         console.log("product added in wishlist");
         dispatch(addToWishlist(productId));
        console.log(productId);
+      
     };
 
     return (
