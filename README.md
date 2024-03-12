@@ -74,10 +74,3 @@ This is an eCommerce web application built using React, Redux, and Firebase for 
 
 - **Admin Dashboard:** Administrators can access the dashboard to manage users, orders, payments, and products.
 
-## Contributing
-
-Contributions are welcome! Please follow the [contribution guidelines](CONTRIBUTING.md).
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
